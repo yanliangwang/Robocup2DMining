@@ -3,7 +3,7 @@
 class   OpenFile:
 	def _init_(self, file_path):
 		self.file_path=file_path
-	def read():
+	def read(self):
 		f=open(self.file_path, 'r')
 		txt=f.read()
 		return  txt
