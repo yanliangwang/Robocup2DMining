@@ -5,7 +5,7 @@ from  Team      import *
 
 
 class  Kick:
-	def __init__(self,rcl,rcg,team_name):
+	def __init__(self,rcl,rcg,team_name="NULL"):
 		self.rcl=rcl
 		self.rcg=rcg
 		self.team_name=team_name
@@ -18,6 +18,26 @@ class  Kick:
 				temp=re.search(kick_expr,elt).group(1)
 				Kick_Cycle.append(temp)
 		return Kick_Cycle
+	
+	def get_all_kick_data(self):
+		Kick_Data=list()
+		kick_expr = "^([0-9]*)?,\d\sRecv\s(.*)?_(\d).*kick"
+		for elt in self.rcl:
+			search_result = re.search(kick_expr, elt)
+			if  search_result is not  None:
+				temp=list()
+				temp.append(search_result.group(1))#kick cycle
+				temp.append(search_result.group(2))#team name
+				temp.append(search_result.group(3))#kick player number
+				
+				Kick_Data.append(temp)
+				temp.clear()
+				
+		return  Kick_Data
+		
+		
+
+		
 
 
 
