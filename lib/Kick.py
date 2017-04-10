@@ -21,7 +21,7 @@ class  Kick:
 	
 	def get_all_kick_data(self):
 		Kick_Data=list()
-		kick_expr = "^([0-9]*)?,\d\sRecv\s(.*)?_(\d).*kick"
+		kick_expr = "^([0-9]*)?,\d\sRecv\s(.*)_(\d).*kick"
 		for elt in self.rcl:
 			search_result = re.search(kick_expr, elt)
 			if  search_result is not  None:
@@ -29,9 +29,7 @@ class  Kick:
 				temp.append(search_result.group(1))#kick cycle
 				temp.append(search_result.group(2))#team name
 				temp.append(search_result.group(3))#kick player number
-				
 				Kick_Data.append(temp)
-				temp.clear()
 				
 		return  Kick_Data
 		
@@ -46,8 +44,12 @@ if __name__=="__main__":
 	rcl=OpenFile(path).read_rcl()
 	rcg=OpenFile(path).read_rcg()
 	team_l,team_r=Team(rcg).get_team_name()
-	team_l_kick_cycle=Kick(rcl,rcg,team_l).get_team_kick_cycle()
-	print(team_l+" kick count:"+str(len(team_l_kick_cycle)))
-	team_r_kick_cycle=Kick(rcl,rcg,team_r).get_team_kick_cycle()
-	print(team_r+" kick count:"+str(len(team_r_kick_cycle)))
+	# team_l_kick_cycle=Kick(rcl,rcg,team_l).get_team_kick_cycle()
+	# print(team_l+" kick count:"+str(len(team_l_kick_cycle)))
+	# team_r_kick_cycle=Kick(rcl,rcg,team_r).get_team_kick_cycle()
+	# print(team_r+" kick count:"+str(len(team_r_kick_cycle)))
+	all_kick_data=Kick(rcl,rcg).get_all_kick_data()
+	for  elt  in  all_kick_data:
+			print(elt)
+	
 
