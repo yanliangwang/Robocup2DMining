@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3acfd4-b443-451e-99ca-ad7a042ff2e0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/helloworld.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Kick.py" afterPath="$PROJECT_DIR$/lib/Kick.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Tackle.py" afterPath="$PROJECT_DIR$/lib/Tackle.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />

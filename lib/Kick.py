@@ -78,6 +78,7 @@ class  Kick:
 	
 	
 	def get_shoot_data(self):
+		shoot_data=list()
 		kick_data=self.get_kick_data()
 		after_goal_data=self.get_after_goal_data()
 		team_l,team_r=Team(rcg).get_team_name()
@@ -115,10 +116,11 @@ class  Kick:
 				j_index=team_kick_data.index(j)
 				if j[0]<=i[0]  and  j_index+1<len(team_kick_data) and  team_kick_data[j_index+1][0]>=i[0]:
 					print(j)
+					shoot_data.append(j)
 					break
 
 				
-				
+		return  shoot_data
 				
 				
 				
