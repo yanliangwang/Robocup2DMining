@@ -39,26 +39,24 @@ if __name__=="__main__":
 	rcg=OpenFile(path).read_rcg()
 	team_l,team_r=Team(rcg).get_team_name()
 	team_l_tackle_cycle=Tackle(rcl,rcg,team_l).get_team_tackle_cycle()
-	print(team_l+" Tackle count:"+str(len(team_l_tackle_cycle)))
+	#print(team_l+" Tackle count:"+str(len(team_l_tackle_cycle)))
 	
 	l_best_tackle=0
 	n=0
 	
+
+	
 	
 	all_kick_data=Kick(rcl,rcg).get_all_kick_data()
-	for  i  in  team_l_tackle_cycle:
+	n=0
+	for  i in  team_l_tackle_cycle:
 		while n<len(all_kick_data):
-			if all_kick_data[n][0]>i and  all_kick_data[n][1] == team_l and  all_kick_data[n-1][0]<i:
-				l_best_tackle+=1
-				#print(all_kick_data[n])
+			if  all_kick_data[n][0]>i and  all_kick_data[n-1][0]<i :
+				print(all_kick_data[n][0])
+				print(i)
 				break
 			n+=1
-			
-			
-				
-			
-	print(team_l+"铲球以后球权转换次数:"+str(l_best_tackle))
-	
+		
 
 	
 	
@@ -67,17 +65,8 @@ if __name__=="__main__":
 	
 	
 	team_r_tackle_cycle=Tackle(rcl,rcg,team_r).get_team_tackle_cycle()
-	print(team_r+" Tackle count:"+str(len(team_r_tackle_cycle)))
+	#print(team_r+" Tackle count:"+str(len(team_r_tackle_cycle)))
 	
-	r_best_tackle=0
-	n=0
-	for i in team_r_tackle_cycle:
-		while n < len(all_kick_data):
-			if all_kick_data[n][0] > i and all_kick_data[n][1] == team_l and all_kick_data[n - 1][0] < i:
-				r_best_tackle += 1
-				#print(all_kick_data[n])
-				break
-			n += 1
 	
-	print(team_r + "铲球以后球权转换次数:" + str(r_best_tackle))
+	
 	
