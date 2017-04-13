@@ -1,7 +1,8 @@
 #!/usr/bin env python3.4
 import re
-from  OpenFile  import *
-from  Team      import *
+
+import  OpenFile  as op
+import  Team      as tm
 
 
 class  Kick:
@@ -38,7 +39,6 @@ class  Kick:
 		return ball_data
 	
 	def get_kick_data(self):
-		"""Returns kick actions for each cycle"""
 		ball_data=self.get_ball_data()
 		
 		kick_data_expr = "^(\d*),.*?Recv ([a-z0-9A-Z_]*)_(\d*): \(kick"
@@ -81,7 +81,7 @@ class  Kick:
 		shoot_data=list()
 		kick_data=self.get_kick_data()
 		after_goal_data=self.get_after_goal_data()
-		team_l,team_r=Team(rcg).get_team_name()
+		team_l,team_r=tm.Team(self.rcg).get_team_name()
 		
 		team_side="l"
 		
@@ -135,8 +135,8 @@ class  Kick:
 	
 if __name__=="__main__":
 	path = "../log/201704040927-Miracle_2D_4_2-vs-YuShan2017_4_3"
-	rcl = OpenFile(path).read_rcl()
-	rcg = OpenFile(path).read_rcg()
+	rcl = op.OpenFile(path).read_rcl()
+	rcg = op.OpenFile(path).read_rcg()
 	#afert=Kick(rcl,rcg).get_after_goal_data()
 	shoot_data=Kick(rcl,rcg,"YuShan2017").get_shoot_data()
 	shoot_data_2=Kick(rcl,rcg,"Miracle_2D").get_shoot_data()
