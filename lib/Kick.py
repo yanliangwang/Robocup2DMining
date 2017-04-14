@@ -109,8 +109,8 @@ class  Kick:
 				
 	   
 				
-				
-		print(self.team_name+"  shoot data")
+		#
+		# print(self.team_name+"  shoot data")
 		for i in  team_after_goal_data:
 			for j in team_kick_data:
 				j_index=team_kick_data.index(j)
